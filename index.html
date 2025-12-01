@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI記事作成 副業スキル実践セミナー</title>
-    <!-- Tailwind CSS CDNの読み込み -->
+    <!-- Tailwind CSS CDNの読み込み (ここがブロックされているとデザインが崩れます) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Noto Sans JPの読み込み -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
@@ -21,38 +21,36 @@
             background-color: #f8fafc;
         }
 
-        /* ヒーローセクションの背景スタイル */
-        .hero-bg {
-            background-image: url('https://images.unsplash.com/photo-1579585640700-0936e7884d5f?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-            background-size: cover;
-            background-position: center;
+        /* ヒーローセクションの背景スタイル - 画像の代わりにグラデーションを使用して安定性を向上 */
+        .hero-bg-gradient {
+            /* 鮮やかなピンクと青のグラデーション */
+            background: linear-gradient(135deg, var(--primary-color) 0%, #4f46e5 100%);
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. ヘッダー / キャッチコピー (明るい背景で強調) -->
-    <header class="pt-16 pb-20 shadow-2xl mb-10 relative overflow-hidden hero-bg">
-        <!-- 明るい背景を維持するため、オーバーレイは使用しない -->
+    <!-- 1. ヘッダー / キャッチコピー (背景を画像からグラデーションに変更し、安定性を向上) -->
+    <header class="pt-16 pb-20 shadow-2xl mb-10 relative overflow-hidden hero-bg-gradient">
         
         <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
-            <p class="text-xl sm:text-2xl font-bold mb-4 bg-yellow-400 text-gray-900 inline-block px-4 py-1 rounded-full shadow-md">
+            <p class="text-xl sm:text-2xl font-bold mb-4 bg-yellow-300 text-gray-900 inline-block px-4 py-1 rounded-full shadow-md">
                 パソコン1台・未経験からでもOK
             </p>
 
-            <!-- 背景が明るいため、文字色を暗めの 'text-gray-900' に変更して視認性を確保 -->
-            <p class="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-tight mb-2">
+            <!-- 背景が濃くなったため、文字色を 'text-white' に変更して視認性を確保 -->
+            <p class="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-2">
                 AIの力で
             </p>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-snug tracking-tight">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-snug tracking-tight">
                 記事作成を2時間で形にできる
             </h1>
 
-            <p class="mt-6 text-3xl sm:text-4xl font-black text-white bg-red-600 inline-block px-6 py-3 rounded-xl shadow-lg transform rotate-[-2deg] hover:rotate-0 transition duration-300">
+            <p class="mt-6 text-3xl sm:text-4xl font-black text-red-800 bg-yellow-400 inline-block px-6 py-3 rounded-xl shadow-lg transform rotate-[-2deg] hover:rotate-0 transition duration-300">
                 副業スキル実践セミナー
             </p>
             
-            <p class="mt-8 text-lg font-medium text-gray-800">
+            <p class="mt-8 text-lg font-medium text-white">
                 今すぐ実践できる具体的なステップを公開。才能やセンスは一切不要です。
             </p>
         </div>
@@ -88,13 +86,11 @@
                         そんな気持ちのまま、何ヶ月も動けずにいる人はたくさんいます。
                     </p>
 
-                    <!-- 悩みセクション内の画像 -->
+                    <!-- 悩みセクション内の画像 (外部画像からDIVプレースホルダーに置き換え) -->
                     <div class="mt-8 mb-8 text-center">
-                        <img 
-                            src="https://images.unsplash.com/photo-1627384113717-b677a83d72cd?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                            alt="悩んでいる人物" 
-                            class="max-w-xl mx-auto rounded-xl shadow-lg border-4 border-yellow-300"
-                        />
+                        <div class="max-w-xl mx-auto rounded-xl shadow-lg border-4 border-yellow-300 bg-yellow-100 flex items-center justify-center h-64">
+                            <p class="text-xl font-bold text-gray-800">悩んでいる人物のイメージ</p>
+                        </div>
                         <p class="text-sm text-gray-500 mt-2">何から手をつけていいか分からない状況</p>
                     </div>
 
@@ -133,13 +129,11 @@
                     ための具体的な手順を、その場で一緒に実践していきます。
                 </p>
 
-                <!-- 解決策セクション内の画像 -->
+                <!-- 解決策セクション内の画像 (外部画像からDIVプレースホルダーに置き換え) -->
                 <div class="mt-8 mb-10 text-center">
-                    <img 
-                        src="https://images.unsplash.com/photo-1696232389775-f86a908a86df?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                        alt="AIアシスタントと生産性" 
-                        class="max-w-xl mx-auto rounded-xl shadow-lg border-4 border-blue-400"
-                    />
+                    <div class="max-w-xl mx-auto rounded-xl shadow-lg border-4 border-blue-400 bg-blue-100 flex items-center justify-center h-64">
+                        <p class="text-xl font-bold text-gray-800">AIアシスタントと生産性向上</p>
+                    </div>
                     <p class="text-sm text-gray-500 mt-2">AIとの協業で生産性を最大化</p>
                 </div>
 
@@ -245,13 +239,11 @@
                     </p>
                 </div>
 
-                 <!-- なぜこの方法が良いのかセクション下部の画像 -->
+                 <!-- なぜこの方法が良いのかセクション下部の画像 (外部画像からDIVプレースホルダーに置き換え) -->
                  <div class="mt-10 text-center">
-                    <img 
-                        src="https://images.unsplash.com/photo-1542435503-914c69817757?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                        alt="成長と学びのイメージ" 
-                        class="max-w-xl mx-auto rounded-xl shadow-lg border-4 border-purple-400"
-                    />
+                    <div class="max-w-xl mx-auto rounded-xl shadow-lg border-4 border-purple-400 bg-purple-100 flex items-center justify-center h-64">
+                        <p class="text-xl font-bold text-gray-800">成長と学びのイメージ</p>
+                    </div>
                     <p class="text-sm text-gray-500 mt-2">着実にスキルを身につけ、成果に繋げる</p>
                 </div>
             </div>
