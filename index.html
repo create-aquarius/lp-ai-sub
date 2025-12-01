@@ -1,380 +1,365 @@
-import React from 'react';
-import { Lightbulb, CheckCircle2, XCircle, Rocket, Brain, Link, DollarSign, Calendar, MapPin, NotebookPen } from 'lucide-react';
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI記事作成 副業スキル実践セミナー</title>
+    <!-- Tailwind CSS CDNの読み込み -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Noto Sans JPの読み込み -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* カスタムカラーの定義 */
+        :root {
+            --primary-color: #FF4081; /* 鮮やかなピンク */
+            --accent-bg: #FF4081;
+        }
 
-// Google Fonts: Noto Sans JPをbodyに適用（Tailwindのconfigはここでは設定できないため、Appコンポーネント内でCSSを適用）
-const App = () => {
-    // デザインのベースカラーとフォント設定
-    const primaryColor = 'text-[#FF4081]'; // 参照元のキーカラーを意識した鮮やかなピンク
-    const accentBg = 'bg-[#FF4081]';
-    const darkBg = 'bg-gray-900';
-    const lightBg = 'bg-white';
-    const textColor = 'text-gray-900';
+        /* Noto Sans JPを全体に適用 */
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f8fafc;
+        }
 
-    // Tailwind JITやカスタムフォント設定を再現するためのインラインスタイル
-    React.useEffect(() => {
-        document.body.style.fontFamily = "'Noto Sans JP', sans-serif";
-        document.body.style.backgroundColor = '#f8fafc';
-        // Noto Sans JPをロード (CDNはheadで読み込まれていますが、念のため)
-    }, []);
+        /* ヒーローセクションの背景スタイル */
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1579585640700-0936e7884d5f?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
 
+    <!-- 1. ヘッダー / キャッチコピー (明るい背景で強調) -->
+    <header class="pt-16 pb-20 shadow-2xl mb-10 relative overflow-hidden hero-bg">
+        <!-- 明るい背景を維持するため、オーバーレイは使用しない -->
+        
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <p class="text-xl sm:text-2xl font-bold mb-4 bg-yellow-400 text-gray-900 inline-block px-4 py-1 rounded-full shadow-md">
+                パソコン1台・未経験からでもOK
+            </p>
 
-    // --- 1. ヘッダー / キャッチコピー (明るい背景で強調) ---
-    const HeroSection = () => (
-        <header className={`pt-16 pb-20 shadow-2xl mb-10 relative overflow-hidden`}>
-            {/* 背景画像 */}
-            <div 
-                className="absolute inset-0 bg-cover bg-center" 
-                style={{
-                    // 明るい雰囲気でPC作業をする人物画像を使用
-                    backgroundImage: `url(https://images.unsplash.com/photo-1579585640700-0936e7884d5f?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)`
-                }}
-            >
-                {/* 明るい背景を維持するため、オーバーレイは削除 */}
-            </div>
+            <!-- 背景が明るいため、文字色を暗めの 'text-gray-900' に変更して視認性を確保 -->
+            <p class="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-tight mb-2">
+                AIの力で
+            </p>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-snug tracking-tight">
+                記事作成を2時間で形にできる
+            </h1>
+
+            <p class="mt-6 text-3xl sm:text-4xl font-black text-white bg-red-600 inline-block px-6 py-3 rounded-xl shadow-lg transform rotate-[-2deg] hover:rotate-0 transition duration-300">
+                副業スキル実践セミナー
+            </p>
             
-            <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-                <p className="text-xl sm:text-2xl font-bold mb-4 bg-yellow-400 text-gray-900 inline-block px-4 py-1 rounded-full shadow-md">
-                    パソコン1台・未経験からでもOK
-                </p>
+            <p class="mt-8 text-lg font-medium text-gray-800">
+                今すぐ実践できる具体的なステップを公開。才能やセンスは一切不要です。
+            </p>
+        </div>
+    </header>
 
-                {/* 背景が明るいため、文字色を暗めの 'text-gray-900' に変更して視認性を確保 */}
-                <p className={`text-5xl sm:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-tight mb-2`}>
-                    AIの力で
-                </p>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-snug tracking-tight">
-                    記事作成を2時間で形にできる
-                </h1>
-
-                <p className="mt-6 text-3xl sm:text-4xl font-black text-white bg-red-600 inline-block px-6 py-3 rounded-xl shadow-lg transform rotate-[-2deg] hover:rotate-0 transition duration-300">
-                    副業スキル実践セミナー
-                </p>
-                
-                <p className="mt-8 text-lg font-medium text-gray-800">
-                    今すぐ実践できる具体的なステップを公開。才能やセンスは一切不要です。
-                </p>
-            </div>
-        </header>
-    );
-
-    // --- 2. 悩み・願望の提示 (Pain Points) ---
-    const PainPointsSection = () => (
-        <section className={`${lightBg} p-8 sm:p-12 border-b border-gray-100`}>
-            <div className="max-w-4xl mx-auto">
-                <h2 className={`text-3xl font-bold mb-8 relative pb-2 ${textColor}`}>
-                    <span className="relative z-10 bg-white pr-4">こんなことで悩んでいませんか？</span>
-                    <div className={`absolute bottom-0 left-0 w-full h-1 ${accentBg} opacity-20`}></div>
-                    <div className={`absolute bottom-0 left-0 w-12 h-1 ${accentBg}`}></div>
+    <!-- メインコンテンツラッパー -->
+    <main class="max-w-4xl mx-auto">
+        <!-- 2. 悩み・願望の提示 (Pain Points) -->
+        <section class="bg-white p-8 sm:p-12 border-b border-gray-100">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8 relative pb-2 text-gray-900">
+                    <span class="relative z-10 bg-white pr-4">こんなことで悩んでいませんか？</span>
+                    <div class="absolute bottom-0 left-0 w-full h-1 bg-[#FF4081] opacity-20"></div>
+                    <div class="absolute bottom-0 left-0 w-12 h-1 bg-[#FF4081]"></div>
                 </h2>
 
-                <div className="space-y-6 text-gray-700 text-lg">
-                    <ul className="list-none space-y-4">
-                        {['AIの情報は多すぎて、何から始めればいいか分からない。', 'ブログもSNSも大事だと言われるけど、文章を書くのは時間がかかるし苦手。', '副業に興味はあるけど、スキルも実績もなくて不安…。'].map((item, index) => (
-                            <li key={index} className="flex items-start p-3 bg-gray-50 rounded-lg border-l-4 border-indigo-400">
-                                <Lightbulb className={`w-6 h-6 mr-3 mt-1 text-indigo-500 flex-shrink-0`} />
-                                <p>{item}</p>
-                            </li>
-                        ))}
+                <div class="space-y-6 text-gray-700 text-lg">
+                    <ul class="list-none space-y-4">
+                        <li class="flex items-start p-3 bg-gray-50 rounded-lg border-l-4 border-indigo-400">
+                            <span class="text-indigo-500 mr-3 mt-1 text-2xl flex-shrink-0">💡</span>
+                            <p>AIの情報は多すぎて、何から始めればいいか分からない。</p>
+                        </li>
+                        <li class="flex items-start p-3 bg-gray-50 rounded-lg border-l-4 border-indigo-400">
+                            <span class="text-indigo-500 mr-3 mt-1 text-2xl flex-shrink-0">💡</span>
+                            <p>ブログもSNSも大事だと言われるけど、文章を書くのは時間がかかるし苦手。</p>
+                        </li>
+                        <li class="flex items-start p-3 bg-gray-50 rounded-lg border-l-4 border-indigo-400">
+                            <span class="text-indigo-500 mr-3 mt-1 text-2xl flex-shrink-0">💡</span>
+                            <p>副業に興味はあるけど、スキルも実績もなくて不安…。</p>
+                        </li>
                     </ul>
-                    <p className="border-l-4 border-red-500 pl-4 py-2 italic bg-red-50 text-red-800 rounded-lg font-medium">
+                    <p class="border-l-4 border-red-500 pl-4 py-2 italic bg-red-50 text-red-800 rounded-lg font-medium">
                         そんな気持ちのまま、何ヶ月も動けずにいる人はたくさんいます。
                     </p>
 
-                    {/* 悩みセクション内の画像 */}
-                    <div className="mt-8 mb-8 text-center">
+                    <!-- 悩みセクション内の画像 -->
+                    <div class="mt-8 mb-8 text-center">
                         <img 
                             src="https://images.unsplash.com/photo-1627384113717-b677a83d72cd?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
                             alt="悩んでいる人物" 
-                            className="max-w-xl mx-auto rounded-xl shadow-lg border-4 border-yellow-300"
+                            class="max-w-xl mx-auto rounded-xl shadow-lg border-4 border-yellow-300"
                         />
-                        <p className="text-sm text-gray-500 mt-2">何から手をつけていいか分からない状況</p>
+                        <p class="text-sm text-gray-500 mt-2">何から手をつけていいか分からない状況</p>
                     </div>
 
-                    <div className="pt-6">
-                        <p className="text-xl font-bold text-gray-800 mb-3">でも一方で、</p>
-                        <div className="bg-gradient-to-r from-pink-50 to-indigo-100 border-2 border-pink-400 p-5 rounded-xl shadow-lg">
-                            <p className={`text-2xl font-black ${primaryColor}`}>
+                    <div class="pt-6">
+                        <p class="text-xl font-bold text-gray-800 mb-3">でも一方で、</p>
+                        <div class="bg-gradient-to-r from-pink-50 to-indigo-100 border-2 border-pink-400 p-5 rounded-xl shadow-lg">
+                            <p class="text-2xl font-black text-[#FF4081]">
                                 「AIをうまく使って記事・投稿・noteを量産し、副業の収入源にしている人」
                             </p>
-                            <p className="mt-3 text-lg font-semibold text-gray-700">
+                            <p class="mt-3 text-lg font-semibold text-gray-700">
                                 がいるのも事実です。
                             </p>
                         </div>
                     </div>
 
-                    <p className="text-lg pt-4 leading-relaxed">
+                    <p class="text-lg pt-4 leading-relaxed">
                         この違いは、才能でもセンスでもありません。<br/>
-                        <span className="font-extrabold text-indigo-600 border-b-4 border-indigo-200">“AIで成果物を作るプロセスを知っているかどうか”</span> です。
+                        <span class="font-extrabold text-indigo-600 border-b-4 border-indigo-200">“AIで成果物を作るプロセスを知っているかどうか”</span> です。
                     </p>
                 </div>
             </div>
         </section>
-    );
 
-    // --- 3. 解決策（実現策の提示） ---
-    const SolutionSection = () => (
-        <section className={`${lightBg} p-8 sm:p-12 border-b border-gray-100`}>
-            <div className="max-w-4xl mx-auto">
-                <h2 className={`text-3xl font-bold mb-8 relative pb-2 ${textColor}`}>
-                    <span className="relative z-10 bg-white pr-4">AI時代の新しいライティング術：実践セミナーの内容</span>
-                    <div className={`absolute bottom-0 left-0 w-full h-1 ${accentBg} opacity-20`}></div>
-                    <div className={`absolute bottom-0 left-0 w-12 h-1 ${accentBg}`}></div>
+        <!-- 3. 解決策（実現策の提示） -->
+        <section class="bg-white p-8 sm:p-12 border-b border-gray-100">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8 relative pb-2 text-gray-900">
+                    <span class="relative z-10 bg-white pr-4">AI時代の新しいライティング術：実践セミナーの内容</span>
+                    <div class="absolute bottom-0 left-0 w-full h-1 bg-[#FF4081] opacity-20"></div>
+                    <div class="absolute bottom-0 left-0 w-12 h-1 bg-[#FF4081]"></div>
                 </h2>
-                {/* 以前のエラー箇所: H2> と書かれていた部分を修正 */}
 
-                <p className="text-lg text-gray-700 mb-10 leading-relaxed bg-yellow-50 p-4 rounded-xl border-l-4 border-yellow-400">
+                <p class="text-lg text-gray-700 mb-10 leading-relaxed bg-yellow-50 p-4 rounded-xl border-l-4 border-yellow-400">
                     今回のセミナーでは、
-                    <span className="font-bold text-indigo-600">AIが文章を“代わりに作る”のではなく、AIと一緒に“質と速度の両方を引き上げながら書く”</span>
+                    <span class="font-bold text-indigo-600">AIが文章を“代わりに作る”のではなく、AIと一緒に“質と速度の両方を引き上げながら書く”</span>
                     ための具体的な手順を、その場で一緒に実践していきます。
                 </p>
 
-                {/* 解決策セクション内の画像 */}
-                <div className="mt-8 mb-10 text-center">
+                <!-- 解決策セクション内の画像 -->
+                <div class="mt-8 mb-10 text-center">
                     <img 
                         src="https://images.unsplash.com/photo-1696232389775-f86a908a86df?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
                         alt="AIアシスタントと生産性" 
-                        className="max-w-xl mx-auto rounded-xl shadow-lg border-4 border-blue-400"
+                        class="max-w-xl mx-auto rounded-xl shadow-lg border-4 border-blue-400"
                     />
-                    <p className="text-sm text-gray-500 mt-2">AIとの協業で生産性を最大化</p>
+                    <p class="text-sm text-gray-500 mt-2">AIとの協業で生産性を最大化</p>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-8">
-                    <div className="p-6 rounded-xl border-4 border-green-500 bg-green-50 shadow-xl">
-                        <p className="text-xl font-black text-green-700 mb-4 flex items-center">
-                            <NotebookPen className="w-6 h-6 mr-2" />具体的な4ステップのテンプレ
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="p-6 rounded-xl border-4 border-green-500 bg-green-50 shadow-xl">
+                        <p class="text-xl font-black text-green-700 mb-4 flex items-center">
+                            <span class="mr-2 text-2xl">📝</span>具体的な4ステップのテンプレ
                         </p>
-                        <ol className="list-none space-y-3 text-gray-800 text-lg">
-                            {['タイトルの決め方', '構成の作らせ方', '本文の生成・調整', '読まれる文章の仕上げ方'].map((item, index) => (
-                                <li key={index} className="flex items-center font-medium">
-                                    <span className={`${accentBg} text-white w-7 h-7 flex items-center justify-center rounded-full mr-3 text-base font-bold flex-shrink-0 shadow-md`}>
-                                        {index + 1}
-                                    </span>
-                                    {item}
-                                </li>
-                            ))}
+                        <ol class="list-none space-y-3 text-gray-800 text-lg">
+                            <li class="flex items-center font-medium">
+                                <span class="bg-[#FF4081] text-white w-7 h-7 flex items-center justify-center rounded-full mr-3 text-base font-bold flex-shrink-0 shadow-md">
+                                    1
+                                </span>
+                                タイトルの決め方
+                            </li>
+                            <li class="flex items-center font-medium">
+                                <span class="bg-[#FF4081] text-white w-7 h-7 flex items-center justify-center rounded-full mr-3 text-base font-bold flex-shrink-0 shadow-md">
+                                    2
+                                </span>
+                                構成の作らせ方
+                            </li>
+                            <li class="flex items-center font-medium">
+                                <span class="bg-[#FF4081] text-white w-7 h-7 flex items-center justify-center rounded-full mr-3 text-base font-bold flex-shrink-0 shadow-md">
+                                    3
+                                </span>
+                                本文の生成・調整
+                            </li>
+                            <li class="flex items-center font-medium">
+                                <span class="bg-[#FF4081] text-white w-7 h-7 flex items-center justify-center rounded-full mr-3 text-base font-bold flex-shrink-0 shadow-md">
+                                    4
+                                </span>
+                                読まれる文章の仕上げ方
+                            </li>
                         </ol>
                     </div>
-                    <div className="p-6 rounded-xl border-4 border-indigo-500 bg-indigo-50 shadow-xl flex items-center">
-                        <p className="text-xl font-bold text-indigo-700 text-center">
-                            この4ステップのテンプレとプロンプトを使い、<br className="hidden sm:inline" />
-                            <span className="text-4xl font-extrabold block mt-2 text-red-600">セミナー中に記事1本を完成させます。</span>
+                    <div class="p-6 rounded-xl border-4 border-indigo-500 bg-indigo-50 shadow-xl flex items-center">
+                        <p class="text-xl font-bold text-indigo-700 text-center">
+                            この4ステップのテンプレとプロンプトを使い、<br class="hidden sm:inline" />
+                            <span class="text-4xl font-extrabold block mt-2 text-red-600">セミナー中に記事1本を完成させます。</span>
                         </p>
                     </div>
                 </div>
             </div>
         </section>
-    );
 
-    // --- 4. なぜこの方法が良いのか (Mechanism) ---
-    const MechanismSection = () => (
-        <section className={`${lightBg} p-8 sm:p-12 border-b border-gray-100`}>
-            <div className="max-w-4xl mx-auto">
-                <h2 className={`text-3xl font-bold mb-8 relative pb-2 ${textColor}`}>
-                    <span className="relative z-10 bg-white pr-4">なぜ成果が出るのか？ 型と再現性でクオリティを保証</span>
-                    <div className={`absolute bottom-0 left-0 w-full h-1 ${accentBg} opacity-20`}></div>
-                    <div className={`absolute bottom-0 left-0 w-12 h-1 ${accentBg}`}></div>
+        <!-- 4. なぜこの方法が良いのか (Mechanism) -->
+        <section class="bg-white p-8 sm:p-12 border-b border-gray-100">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8 relative pb-2 text-gray-900">
+                    <span class="relative z-10 bg-white pr-4">なぜ成果が出るのか？ 型と再現性でクオリティを保証</span>
+                    <div class="absolute bottom-0 left-0 w-full h-1 bg-[#FF4081] opacity-20"></div>
+                    <div class="absolute bottom-0 left-0 w-12 h-1 bg-[#FF4081]"></div>
                 </h2>
 
-                <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+                <p class="text-lg text-gray-700 mb-8 leading-relaxed">
                     AIを触っている人でも、思ったほど成果が出ない理由は明確です。
                 </p>
 
-                {/* NG例 */}
-                <div className="mb-10 bg-red-50 p-6 rounded-xl border-4 border-red-500 shadow-md">
-                    <p className="text-2xl font-black text-red-600 mb-4 flex items-center">
-                        <XCircle className="w-7 h-7 mr-3" />伸びない人がやっていること
+                <!-- NG例 -->
+                <div class="mb-10 bg-red-50 p-6 rounded-xl border-4 border-red-500 shadow-md">
+                    <p class="text-2xl font-black text-red-600 mb-4 flex items-center">
+                        <span class="mr-3 text-2xl">❌</span>伸びない人がやっていること
                     </p>
-                    <div className="grid md:grid-cols-3 gap-4 text-center text-gray-800">
-                        <div className="p-4 bg-white rounded-lg font-medium border-2 border-red-300">
+                    <div class="grid md:grid-cols-3 gap-4 text-center text-gray-800">
+                        <div class="p-4 bg-white rounded-lg font-medium border-2 border-red-300">
                             ✖「思いついた内容をAIに投げているだけ」
                         </div>
-                        <div className="p-4 bg-white rounded-lg font-medium border-2 border-red-300">
+                        <div class="p-4 bg-white rounded-lg font-medium border-2 border-red-300">
                             ✖「出てきた文章を鵜呑みにしている」
                         </div>
-                        <div className="p-4 bg-white rounded-lg font-medium border-2 border-red-300">
+                        <div class="p-4 bg-white rounded-lg font-medium border-2 border-red-300">
                             ✖「クオリティの判断軸を持っていない」
                         </div>
                     </div>
-                    <p className="text-sm text-red-700 mt-4 text-center font-bold">
+                    <p class="text-sm text-red-700 mt-4 text-center font-bold">
                         これだと、どれだけ回数をこなしても伸びません。
                     </p>
                 </div>
 
-                {/* 成功のポイント */}
-                <div className="bg-green-50 p-6 rounded-xl border-4 border-green-500 shadow-md">
-                    <p className="text-2xl font-black text-green-600 mb-4 flex items-center">
-                        <CheckCircle2 className="w-7 h-7 mr-3" />セミナーで学ぶ成功法則
+                <!-- 成功のポイント -->
+                <div class="bg-green-50 p-6 rounded-xl border-4 border-green-500 shadow-md">
+                    <p class="text-2xl font-black text-green-600 mb-4 flex items-center">
+                        <span class="mr-3 text-2xl">✅</span>セミナーで学ぶ成功法則
                     </p>
-                    <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                        今回のセミナーでは、文章の作成を<span className="font-extrabold text-green-700">“型と再現性”</span>で扱います。
+                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                        今回のセミナーでは、文章の作成を<span class="font-extrabold text-green-700">“型と再現性”</span>で扱います。
                     </p>
-                    <div className="grid md:grid-cols-3 gap-4 text-center">
-                        <div className="p-5 rounded-lg font-bold text-green-900 bg-white border-2 border-green-300 shadow-md">
+                    <div class="grid md:grid-cols-3 gap-4 text-center">
+                        <div class="p-5 rounded-lg font-bold text-green-900 bg-white border-2 border-green-300 shadow-md">
                             ✔ AIに投げる前の素材整理
                         </div>
-                        <div className="p-5 rounded-lg font-bold text-green-900 bg-white border-2 border-green-300 shadow-md">
+                        <div class="p-5 rounded-lg font-bold text-green-900 bg-white border-2 border-green-300 shadow-md">
                             ✔ プロンプトの渡し方
                         </div>
-                        <div className="p-5 rounded-lg font-bold text-green-900 bg-white border-2 border-green-300 shadow-md">
+                        <div class="p-5 rounded-lg font-bold text-green-900 bg-white border-2 border-green-300 shadow-md">
                             ✔ 仕上げのチェックポイント
                         </div>
                     </div>
-                    <p className="text-lg text-gray-700 mt-6 pt-4 border-t border-gray-200 leading-relaxed">
+                    <p class="text-lg text-gray-700 mt-6 pt-4 border-t border-gray-200 leading-relaxed">
                         この3つが揃うと、初心者でもクオリティが大きく変わります。だからこそ
-                        <span className="font-extrabold text-indigo-600">「一度覚えたら自宅に帰ってからも再現できる」</span>
+                        <span class="font-extrabold text-indigo-600">「一度覚えたら自宅に帰ってからも再現できる」</span>
                         ことを重視しています。
                     </p>
                 </div>
 
-                 {/* なぜこの方法が良いのかセクション下部の画像 */}
-                 <div className="mt-10 text-center">
+                 <!-- なぜこの方法が良いのかセクション下部の画像 -->
+                 <div class="mt-10 text-center">
                     <img 
                         src="https://images.unsplash.com/photo-1542435503-914c69817757?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
                         alt="成長と学びのイメージ" 
-                        className="max-w-xl mx-auto rounded-xl shadow-lg border-4 border-purple-400"
+                        class="max-w-xl mx-auto rounded-xl shadow-lg border-4 border-purple-400"
                     />
-                    <p className="text-sm text-gray-500 mt-2">着実にスキルを身につけ、成果に繋げる</p>
+                    <p class="text-sm text-gray-500 mt-2">着実にスキルを身につけ、成果に繋げる</p>
                 </div>
             </div>
         </section>
-    );
 
-    // --- 5. 開催情報 ---
-    const EventDetailsSection = () => (
-        <section className={`${lightBg} p-8 sm:p-12 border-b border-gray-100`} id="registration">
-            <div className="max-w-4xl mx-auto">
-                <h2 className={`text-3xl font-bold mb-8 relative pb-2 ${textColor}`}>
-                    <span className="relative z-10 bg-white pr-4">セミナー開催詳細</span>
-                    <div className={`absolute bottom-0 left-0 w-full h-1 ${accentBg} opacity-20`}></div>
-                    <div className={`absolute bottom-0 left-0 w-12 h-1 ${accentBg}`}></div>
+        <!-- 5. 開催情報 -->
+        <section class="bg-white p-8 sm:p-12 border-b border-gray-100" id="registration">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8 relative pb-2 text-gray-900">
+                    <span class="relative z-10 bg-white pr-4">セミナー開催詳細</span>
+                    <div class="absolute bottom-0 left-0 w-full h-1 bg-[#FF4081] opacity-20"></div>
+                    <div class="absolute bottom-0 left-0 w-12 h-1 bg-[#FF4081]"></div>
                 </h2>
 
-                <div className="space-y-6">
-                    {/* セミナー名 */}
-                    <DetailBox
-                        icon={<NotebookPen className="w-6 h-6 mr-3 text-indigo-600" />}
-                        title="セミナー名"
-                        content="AI副業×記事作成セミナー「2時間で1本仕上げる｜ゼロから収益化につながるライティング実践」"
-                        primaryColor={primaryColor}
-                    />
+                <div class="space-y-6">
+                    <!-- 詳細表示用コンポーネント (HTML展開) -->
+                    <!-- セミナー名 -->
+                    <div class="bg-gray-50 p-5 rounded-lg border-2 border-gray-200 shadow-sm">
+                        <h3 class="text-xl font-black flex items-center mb-2 text-[#FF4081]">
+                            <span class="mr-3 text-2xl text-indigo-600">■</span>
+                            <span class="text-gray-900">セミナー名</span>
+                        </h3>
+                        <p class="text-lg text-gray-800 pl-9">AI副業×記事作成セミナー「2時間で1本仕上げる｜ゼロから収益化につながるライティング実践」</p>
+                    </div>
 
-                    {/* 開催日時 */}
-                    <DetailBox
-                        icon={<Calendar className="w-6 h-6 mr-3 text-indigo-600" />}
-                        title="開催日時"
-                        content="12月●日（●）　●:●●〜●:●●"
-                        subContent="（会場情報を入力してください）"
-                        primaryColor={primaryColor}
-                    />
+                    <!-- 開催日時 -->
+                    <div class="bg-gray-50 p-5 rounded-lg border-2 border-gray-200 shadow-sm">
+                        <h3 class="text-xl font-black flex items-center mb-2 text-[#FF4081]">
+                            <span class="mr-3 text-2xl text-indigo-600">■</span>
+                            <span class="text-gray-900">開催日時</span>
+                        </h3>
+                        <p class="text-lg text-gray-800 pl-9">12月●日（●）　●:●●〜●:●●</p>
+                        <p class="text-sm text-gray-600 pl-9 mt-1">会場：<span class="font-medium text-gray-700">（会場情報を入力してください）</span></p>
+                    </div>
 
-                    {/* 内容 */}
-                    <DetailBox
-                        icon={<MapPin className="w-6 h-6 mr-3 text-indigo-600" />}
-                        title="内容"
-                        list={[
-                            'AI副業の全体像と稼ぎ方の種類',
-                            '記事を作るテンプレ＆プロンプト配布',
-                            '全員で記事作成ワーク（タイトル→構成→本文）',
-                            '仕上げのポイント解説',
-                            '最後に画像生成の実演（SNS投稿用の差別化）'
-                        ]}
-                        primaryColor={primaryColor}
-                    />
+                    <!-- 内容 -->
+                    <div class="bg-gray-50 p-5 rounded-lg border-2 border-gray-200 shadow-sm">
+                        <h3 class="text-xl font-black flex items-center mb-2 text-[#FF4081]">
+                            <span class="mr-3 text-2xl text-indigo-600">■</span>
+                            <span class="text-gray-900">内容</span>
+                        </h3>
+                        <ul class="list-none text-gray-700 pl-4 space-y-1">
+                            <li class="flex items-start pl-5 relative before:content-[''] before:w-1.5 before:h-1.5 before:bg-indigo-500 before:rounded-full before:absolute before:left-0 before:top-2.5">AI副業の全体像と稼ぎ方の種類</li>
+                            <li class="flex items-start pl-5 relative before:content-[''] before:w-1.5 before:h-1.5 before:bg-indigo-500 before:rounded-full before:absolute before:left-0 before:top-2.5">記事を作るテンプレ＆プロンプト配布</li>
+                            <li class="flex items-start pl-5 relative before:content-[''] before:w-1.5 before:h-1.5 before:bg-indigo-500 before:rounded-full before:absolute before:left-0 before:top-2.5">全員で記事作成ワーク（タイトル→構成→本文）</li>
+                            <li class="flex items-start pl-5 relative before:content-[''] before:w-1.5 before:h-1.5 before:bg-indigo-500 before:rounded-full before:absolute before:left-0 before:top-2.5">仕上げのポイント解説</li>
+                            <li class="flex items-start pl-5 relative before:content-[''] before:w-1.5 before:h-1.5 before:bg-indigo-500 before:rounded-full before:absolute before:left-0 before:top-2.5">最後に画像生成の実演（SNS投稿用の差別化）</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
-    );
 
-    // 詳細表示用コンポーネント
-    const DetailBox = ({ icon, title, content, list, subContent, primaryColor }) => (
-        <div className="bg-gray-50 p-5 rounded-lg border-2 border-gray-200 shadow-sm">
-            <h3 className={`text-xl font-black flex items-center mb-2 ${primaryColor}`}>
-                {icon}
-                <span className="text-gray-900">■ {title}</span>
-            </h3>
-            {content && <p className="text-lg text-gray-800 pl-9">{content}</p>}
-            {subContent && <p className="text-sm text-gray-600 pl-9 mt-1">会場：<span className="font-medium text-gray-700">{subContent}</span></p>}
-            {list && (
-                <ul className="list-none text-gray-700 pl-4 space-y-1">
-                    {list.map((item, index) => (
-                        <li key={index} className="flex items-start pl-5 relative before:content-[''] before:w-1.5 before:h-1.5 before:bg-indigo-500 before:rounded-full before:absolute before:left-0 before:top-2.5">
-                            {item}
-                        </li>
-                    ))}
-                </ul>
-            )}
-        </div>
-    );
-
-
-    // --- 6. 価格・参加メリット (濃い背景で強調) ---
-    const PricingSection = () => (
-        <section className={`bg-indigo-700 p-8 sm:p-12 mt-10 text-white shadow-2xl`}>
-            <div className="max-w-4xl mx-auto">
-                <h2 className="text-white text-3xl font-extrabold text-center mb-8 relative pb-3">
-                    <span className="relative z-10 bg-indigo-700 px-4">参加費と特典・得られる未来</span>
-                    <div className="absolute bottom-0 left-0 w-full h-1 bg-indigo-500 opacity-50"></div>
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1 bg-yellow-400"></div>
+        <!-- 6. 価格・参加メリット (濃い背景で強調) -->
+        <section class="bg-indigo-700 p-8 sm:p-12 mt-10 text-white shadow-2xl">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-white text-3xl font-extrabold text-center mb-8 relative pb-3">
+                    <span class="relative z-10 bg-indigo-700 px-4">参加費と特典・得られる未来</span>
+                    <div class="absolute bottom-0 left-0 w-full h-1 bg-indigo-500 opacity-50"></div>
+                    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1 bg-yellow-400"></div>
                 </h2>
 
-                <div className="flex flex-col lg:flex-row items-center justify-between bg-white text-gray-800 p-6 rounded-xl shadow-2xl border-4 border-yellow-400 mb-10">
-                    <div className="lg:w-1/2 mb-4 lg:mb-0 text-center lg:text-left">
-                        <p className="text-xl font-black flex items-center justify-center lg:justify-start text-indigo-600 mb-1">
-                            <DollarSign className="w-6 h-6 mr-2"/> 参加費
+                <div class="flex flex-col lg:flex-row items-center justify-between bg-white text-gray-800 p-6 rounded-xl shadow-2xl border-4 border-yellow-400 mb-10">
+                    <div class="lg:w-1/2 mb-4 lg:mb-0 text-center lg:text-left">
+                        <p class="text-xl font-black flex items-center justify-center lg:justify-start text-indigo-600 mb-1">
+                            <span class="mr-2 text-2xl">💵</span> 参加費
                         </p>
-                        <p className="text-6xl font-extrabold text-red-600 mt-1">
-                            5,500<span className="text-3xl font-medium ml-1">円</span>
-                            <span className="text-2xl font-medium ml-2 text-gray-600">（税込）</span>
+                        <p class="text-6xl font-extrabold text-red-600 mt-1">
+                            5,500<span class="text-3xl font-medium ml-1">円</span>
+                            <span class="text-2xl font-medium ml-2 text-gray-600">（税込）</span>
                         </p>
                     </div>
-                    <div className="lg:w-1/2 text-center lg:text-right">
-                        <p className="text-xl font-bold text-indigo-700 bg-yellow-200 inline-block px-4 py-2 rounded-lg">
+                    <div class="lg:w-1/2 text-center lg:text-right">
+                        <p class="text-xl font-bold text-indigo-700 bg-yellow-200 inline-block px-4 py-2 rounded-lg">
                             🎁 テンプレ・プロンプト付き
                         </p>
-                        <p className="text-base text-gray-500 mt-2">
+                        <p class="text-base text-gray-500 mt-2">
                             ※セミナー後も復習できる構成になっています
                         </p>
                     </div>
                 </div>
 
-                <div className="bg-indigo-800 p-6 rounded-xl shadow-inner border-2 border-indigo-400">
-                    <h3 className="text-2xl font-black text-yellow-300 mb-5 flex items-center">
-                        <Rocket className="w-7 h-7 mr-3"/> 参加後に得られること
+                <div class="bg-indigo-800 p-6 rounded-xl shadow-inner border-2 border-indigo-400">
+                    <h3 class="text-2xl font-black text-yellow-300 mb-5 flex items-center">
+                        <span class="mr-3 text-2xl">🚀</span> 参加後に得られること
                     </h3>
-                    <ul className="list-none space-y-4 text-lg">
-                        <BenefitItem icon="🚀" text="AIで記事を作る流れが理解できる" />
-                        <BenefitItem icon="🧠" text="「自力で再現できる」状態になる" />
-                        <BenefitItem icon="🔗" text="SNS、note、ブログ、商品販売、集客にも活用できる" />
-                        <BenefitItem icon="💰" text="副業として案件を取る道筋が見える" />
+                    <ul class="list-none space-y-4 text-lg">
+                        <li class="flex items-start font-medium text-gray-100">
+                            <span class="text-xl text-yellow-300 mr-3 mt-0.5 flex-shrink-0">🚀</span>
+                            <p class="leading-relaxed">AIで記事を作る流れが理解できる</p>
+                        </li>
+                        <li class="flex items-start font-medium text-gray-100">
+                            <span class="text-xl text-yellow-300 mr-3 mt-0.5 flex-shrink-0">🧠</span>
+                            <p class="leading-relaxed">「自力で再現できる」状態になる</p>
+                        </li>
+                        <li class="flex items-start font-medium text-gray-100">
+                            <span class="text-xl text-yellow-300 mr-3 mt-0.5 flex-shrink-0">🔗</span>
+                            <p class="leading-relaxed">SNS、note、ブログ、商品販売、集客にも活用できる</p>
+                        </li>
+                        <li class="flex items-start font-medium text-gray-100">
+                            <span class="text-xl text-yellow-300 mr-3 mt-0.5 flex-shrink-0">💰</span>
+                            <p class="leading-relaxed">副業として案件を取る道筋が見える</p>
+                        </li>
                     </ul>
                 </div>
             </div>
         </section>
-    );
+    </main>
 
-    // 特典リストアイテム
-    const BenefitItem = ({ icon, text }) => (
-        <li className="flex items-start font-medium text-gray-100">
-            <span className="text-xl text-yellow-300 mr-3 mt-0.5 flex-shrink-0">{icon}</span>
-            <p className="leading-relaxed">{text}</p>
-        </li>
-    );
-
-
-    return (
-        <div className="min-h-screen">
-            <HeroSection />
-
-            {/* メインコンテンツラッパー */}
-            <main className="max-w-4xl mx-auto">
-                <PainPointsSection />
-                <SolutionSection />
-                <MechanismSection />
-                <EventDetailsSection />
-            </main>
-
-            <PricingSection />
-        </div>
-    );
-};
-
-export default App;
+</body>
+</html>
