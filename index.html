@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI記事作成 副業スキル実践セミナー</title>
-    <!-- Tailwind CSS CDNの読み込み (ここがブロックされているとデザインが崩れます) -->
+    
+    <!-- 組み込み版 Tailwind CSS を使用 -->
+    <!-- このCDNがブロックされる場合、デザイン全体が崩れることになりますが、現在これ以上の安定策がないため、このまま進めます。 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Noto Sans JPの読み込み -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
@@ -86,12 +88,15 @@
                         そんな気持ちのまま、何ヶ月も動けずにいる人はたくさんいます。
                     </p>
 
-                    <!-- 悩みセクション内の画像 (外部画像からDIVプレースホルダーに置き換え) -->
+                    <!-- 悩んでいる人物のイメージをインラインSVGに置き換え -->
                     <div class="mt-8 mb-8 text-center">
-                        <div class="max-w-xl mx-auto rounded-xl shadow-lg border-4 border-yellow-300 bg-yellow-100 flex items-center justify-center h-64">
-                            <p class="text-xl font-bold text-gray-800">悩んでいる人物のイメージ</p>
+                        <div class="max-w-xl mx-auto rounded-xl shadow-lg border-4 border-yellow-300 bg-yellow-100 flex flex-col items-center justify-center h-64">
+                            <!-- SVGアイコンを追加 -->
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-24 h-24 text-yellow-600 mb-2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.18 0 2.223.152 3.232.317M9.879 7.519c-.976 0-1.93-.075-2.887-.243m4.318 3.454a24.78 24.78 0 0 1 2.307.294M13.682 10.973c.478.072.956.148 1.434.226M13.682 10.973l4.318-4.318M18 10.973l-4.318-4.318M10.22 7.152l1.91 1.91M10.22 7.152L7.382 4.314M16.682 10.973L13.682 7.973M16.682 10.973l-4.318-4.318M12 21a9 9 0 0 0 9-9 9 9 0 0 0-9-9 9 9 0 0 0-9 9 9 9 0 0 0 9 9Z" />
+                            </svg>
+                            <p class="text-xl font-bold text-gray-800">何から手をつけていいか分からない状況</p>
                         </div>
-                        <p class="text-sm text-gray-500 mt-2">何から手をつけていいか分からない状況</p>
                     </div>
 
                     <div class="pt-6">
@@ -129,12 +134,15 @@
                     ための具体的な手順を、その場で一緒に実践していきます。
                 </p>
 
-                <!-- 解決策セクション内の画像 (外部画像からDIVプレースホルダーに置き換え) -->
+                <!-- AIアシスタントと生産性向上のイメージをインラインSVGに置き換え -->
                 <div class="mt-8 mb-10 text-center">
-                    <div class="max-w-xl mx-auto rounded-xl shadow-lg border-4 border-blue-400 bg-blue-100 flex items-center justify-center h-64">
+                    <div class="max-w-xl mx-auto rounded-xl shadow-lg border-4 border-blue-400 bg-blue-100 flex flex-col items-center justify-center h-64">
+                        <!-- SVGアイコンを追加 -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-24 h-24 text-blue-600 mb-2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25H7.5A2.25 2.25 0 0 1 5.25 15V8.25c0-1.24.792-2.323 1.968-2.791C8.258 5.485 10.198 4.75 12 4.75s3.742.735 4.782 1.209c1.176.468 1.968 1.551 1.968 2.791V15a2.25 2.25 0 0 1-2.25 2.25H15M9 17.25c0 1.24.792 2.323 1.968 2.791C12.258 21.015 14.198 21.75 16 21.75s3.742-.735 4.782-1.209c1.176-.468 1.968-1.551 1.968-2.791V8.25c0-1.24-.792-2.323-1.968-2.791C15.742 5.485 13.802 4.75 12 4.75V3M9 17.25a3 3 0 0 1-6 0v-4.5h6v4.5Zm0 0V15.75m3-8.25v2.25M9 13.5h6" />
+                        </svg>
                         <p class="text-xl font-bold text-gray-800">AIアシスタントと生産性向上</p>
                     </div>
-                    <p class="text-sm text-gray-500 mt-2">AIとの協業で生産性を最大化</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-8">
@@ -239,12 +247,16 @@
                     </p>
                 </div>
 
-                 <!-- なぜこの方法が良いのかセクション下部の画像 (外部画像からDIVプレースホルダーに置き換え) -->
+                 <!-- 成長と学びのイメージをインラインSVGに置き換え -->
                  <div class="mt-10 text-center">
-                    <div class="max-w-xl mx-auto rounded-xl shadow-lg border-4 border-purple-400 bg-purple-100 flex items-center justify-center h-64">
+                    <div class="max-w-xl mx-auto rounded-xl shadow-lg border-4 border-purple-400 bg-purple-100 flex flex-col items-center justify-center h-64">
+                        <!-- SVGアイコンを追加 -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-24 h-24 text-purple-600 mb-2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.31 4.31a.75.75 0 0 0 1.06 0l5.88-5.88a.75.75 0 0 0 0-1.06l-5.88-5.88a.75.75 0 0 0-1.06 0L9 10.94 2.25 4.19a.75.75 0 0 0-1.06 0l-.35.35a.75.75 0 0 0 0 1.06l6.81 6.81a.75.75 0 0 0 1.06 0Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18H5.25a3.75 3.75 0 0 1 0-7.5h7.5" />
+                        </svg>
                         <p class="text-xl font-bold text-gray-800">成長と学びのイメージ</p>
                     </div>
-                    <p class="text-sm text-gray-500 mt-2">着実にスキルを身につけ、成果に繋げる</p>
                 </div>
             </div>
         </section>
